@@ -58,7 +58,7 @@ class CachedPDFView extends StatelessWidget {
         key: _cacheKey,
         maxAgeCacheObject: maxAgeCacheObject,
         maxNrOfCacheObjects: maxNrOfCacheObjects,
-      ).getFileStream(url, withProgress: true, headers: headers),
+      ).getFileStream(url, key: Uri.parse(url).path, withProgress: true, headers: headers),
       builder: (_, AsyncSnapshot<FileResponse> snapshot) {
         final bool loading =
             !snapshot.hasData || snapshot.data is DownloadProgress;

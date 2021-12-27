@@ -38,11 +38,13 @@ extension PDFViewTypes on PDF {
     Duration maxAgeCacheObject = const Duration(days: 10),
     int maxNrOfCacheObjects = 100,
     WhenDone? whenDone,
+    bool force = false,
   }) {
     return CachedPDFView(
       'libCachedPdfView',
       key: key,
       pdf: this,
+      force: force,
       url: url,
       placeholder: placeholder,
       errorWidget: errorWidget,
